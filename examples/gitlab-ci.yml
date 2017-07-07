@@ -4,12 +4,10 @@ stages:
   - test
 variables:
   CI_PROJECT_DIR: /app
+  CI_SFDX_USERNAME: XXX@XXX
+  CI_SFDX_CONSUMER_KEY: XXXXXXXXXXXXXXXXXXXXXXXXX
 test:
   stage: test
   script:
-    - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile $CI_SFDX_KEY --username $USERNAME --setdefaultdevhubusername -a HubOrg
-    - sfdx force:org:create -v HubOrg -s -f $CI_SFDX_SCRATCH_DEF -a $CI_SFDX_ORG
-    - sfdx force:source:push -u $CI_SFDX_ORG
-    - sfdx force:apex:test:run -u $CI_SFDX_ORG -c -r human
-    - sfdx force:org:delete -u $CI_SFDX_ORG -p
+    - ci-test.sh
   coverage: '/^\w*\s*\w*\s*(\w*).*$/'
