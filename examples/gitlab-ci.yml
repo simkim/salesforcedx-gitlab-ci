@@ -1,13 +1,16 @@
 # Sample ci file to copy to your project
-image: salesforcedx-gitlab-ci:latest
-stages:
-  - test
+image: simkim/salesforcedx-gitlab-ci
+
 variables:
   CI_PROJECT_DIR: /app
   CI_SFDX_USERNAME: XXX@XXX
   CI_SFDX_CONSUMER_KEY: XXXXXXXXXXXXXXXXXXXXXXXXX
+
+stages:
+  - test
+
 test:
   stage: test
   script:
-    - ci-test.sh
+    - sfdx-test.sh
   coverage: '/^\w*\s*\w*\s*(\w*).*$/'
