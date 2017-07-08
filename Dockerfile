@@ -9,5 +9,5 @@ ENV SFDX_DOMAIN_RETRY 300
 ENV CI_SFDX_ORG ciorg
 ENV CI_SFDX_KEY /app/assets/server.key
 ENV CI_SFDX_SCRATCH_DEF /app/config/project-scratch-def.json
-COPY ci-test.sh /usr/local/bin/
+COPY sfdx-test.sh /usr/local/bin/
 CMD bash

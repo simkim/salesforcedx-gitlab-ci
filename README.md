@@ -2,7 +2,7 @@
 
 ## Manually with a local project
 ```bash
-docker run --rm -ti -e CI_SFDX_USERNAME=XXX@XXX -e CI_SFDX_CONSUMER_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -v YOUR_PROJECT_FOLDER:/app -v YOUR_KEY:/app/assets/server.key  salesforcedx-gitlab-ci ci-test.sh
+docker run --rm -ti -e CI_SFDX_USERNAME=XXX@XXX -e CI_SFDX_CONSUMER_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -v YOUR_PROJECT_FOLDER:/app -v YOUR_KEY:/app/assets/server.key  salesforcedx-gitlab-ci sfdx-test.sh
 ```
 
 ## With Gitlab CI
