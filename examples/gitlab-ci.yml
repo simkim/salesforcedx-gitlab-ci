@@ -2,12 +2,15 @@
 image: simkim/salesforcedx-gitlab-ci
 
 variables:
-  CI_PROJECT_DIR: /app
   CI_SFDX_USERNAME: XXX@XXX
   CI_SFDX_CONSUMER_KEY: XXXXXXXXXXXXXXXXXXXXXXXXX
 
 stages:
   - test
+
+before_script:
+  - mkdir -p ${CI_PROJECT_DIR}/assets/
+  - echo -e $server_key | base64 -d > ${CI_PROJECT_DIR}/assets/server.key
 
 test:
   stage: test

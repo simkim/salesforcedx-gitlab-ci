@@ -7,10 +7,5 @@ docker run --rm -ti -e CI_SFDX_USERNAME=XXX@XXX -e CI_SFDX_CONSUMER_KEY=XXXXXXXX
 
 ## With Gitlab CI
 
-
-copy and rename [gitlab-ci.yml](examples/gitlab-ci.yml) in YOU_PROJECT_FOLDER/.gitlab-ci.yml
-
-### **WIP**
-
-- Configure a secured server.key
-- Really test this project with gitlab
+- copy and rename [gitlab-ci.yml](examples/gitlab-ci.yml) in YOU_PROJECT_FOLDER/.gitlab-ci.yml
+- Create a pipeline variable **secret_key** with your pem key (server.key) encoded in base64
