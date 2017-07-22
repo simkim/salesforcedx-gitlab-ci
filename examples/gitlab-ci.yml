@@ -16,4 +16,4 @@ test:
   stage: test
   script:
     - sfdx-test.sh
-  coverage: '/^01\w*\s*\w*\s*(\w*).*$/'
+  coverage: '/Total Coverage: (\w*).*$/'
