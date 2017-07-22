@@ -1,6 +1,10 @@
 FROM simkim/salesforcedx
 VOLUME /app
 WORKDIR /app
+RUN apt-get update && apt-get install -y \
+  python \
+  && rm -rf /var/lib/apt/lists/*
+
 # sfdx environment
 ENV SFDX_AUTOUPDATE_DISABLE true
 ENV SFDX_USE_GENERIC_UNIX_KEYCHAIN true
