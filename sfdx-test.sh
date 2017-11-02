@@ -21,5 +21,5 @@ sfdx force:auth:jwt:grant --clientid $CI_SFDX_CONSUMER_KEY --jwtkeyfile "$CI_PRO
 sfdx force:org:create -v HubOrg -s -f "$CI_PROJECT_DIR/$CI_SFDX_SCRATCH_DEF" -a $CI_SFDX_ORG
 sfdx force:source:push -u $CI_SFDX_ORG
 sfdx force:apex:test:run -u $CI_SFDX_ORG -c -r json | tee result.json
-cat result.json | python -c "import json, sys; c=reduce(lambda x, y : (x[0]+y[0], x[1]+y[1]),[(x['totalCovered'], x['totalLines']) for x in json.load(sys.stdin)['result']['coverage']['coverage']]); print 'Total Coverage: %f' % (c[0]/float(c[1])*100)"
+cat result.json | python -c "import json, sys; c=reduce(lambda x, y : (x[0]+y[0], x[1]+y[1]),[(x['totalCovered'], x['totalLines']) for x in json.load(sys.stdin)['result']['coverage']['coverage']], (0, 0)); print 'Total Coverage: %f' % (c[0]/float(c[1])*100 if c[1] else 100)"
 sfdx force:org:delete -u $CI_SFDX_ORG -p
