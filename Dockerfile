@@ -3,6 +3,7 @@ VOLUME /app
 WORKDIR /app
 RUN apt-get update && apt-get install -y \
   python \
+  jq \
   && rm -rf /var/lib/apt/lists/*
 
 # sfdx environment
